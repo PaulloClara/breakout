@@ -1,8 +1,9 @@
-const rulesBtn = document.getElementById("rules-btn");
-const closeBtn = document.getElementById("close-btn");
-const rules = document.getElementById("rules");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+
+const rules = document.getElementById("rules");
+const rulesBtn = document.getElementById("rules-btn");
+const closeBtn = document.getElementById("close-btn");
 
 let score = 0;
 
@@ -92,13 +93,9 @@ function movePaddle() {
   paddle.x += paddle.dx;
 
   // Wall detection
-  if (paddle.x + paddle.w > canvas.width) {
-    paddle.x = canvas.width - paddle.w;
-  }
+  if (paddle.x + paddle.w > canvas.width) paddle.x = canvas.width - paddle.w;
 
-  if (paddle.x < 0) {
-    paddle.x = 0;
-  }
+  if (paddle.x < 0) paddle.x = 0;
 }
 
 // Move ball on canvas
@@ -107,14 +104,12 @@ function moveBall() {
   ball.y += ball.dy;
 
   // Wall collision (right/left)
-  if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0) {
+  if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0)
     ball.dx *= -1; // ball.dx = ball.dx * -1
-  }
 
   // Wall collision (top/bottom)
-  if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
+  if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0)
     ball.dy *= -1;
-  }
 
   // console.log(ball.x, ball.y);
 
@@ -123,9 +118,8 @@ function moveBall() {
     ball.x - ball.size > paddle.x &&
     ball.x + ball.size < paddle.x + paddle.w &&
     ball.y + ball.size > paddle.y
-  ) {
+  )
     ball.dy = -ball.speed;
-  }
 
   // Brick collision
   bricks.forEach(column => {
@@ -157,9 +151,7 @@ function moveBall() {
 function increaseScore() {
   score++;
 
-  if (score % (brickRowCount * brickRowCount) === 0) {
-    showAllBricks();
-  }
+  if (score % (brickRowCount * brickRowCount) === 0) showAllBricks();
 }
 
 // Make all bricks appear
@@ -195,11 +187,8 @@ update();
 
 // Keydown event
 function keyDown(e) {
-  if (e.key === "Right" || e.key === "ArrowRight") {
-    paddle.dx = paddle.speed;
-  } else if (e.key === "Left" || e.key === "ArrowLeft") {
-    paddle.dx = -paddle.speed;
-  }
+  if (e.key === "Right" || e.key === "ArrowRight") paddle.dx = paddle.speed;
+  else if (e.key === "Left" || e.key === "ArrowLeft") paddle.dx = -paddle.speed;
 }
 
 // Keyup event
@@ -209,14 +198,13 @@ function keyUp(e) {
     e.key === "ArrowRight" ||
     e.key === "Left" ||
     e.key === "ArrowLeft"
-  ) {
+  )
     paddle.dx = 0;
-  }
 }
 
 // Keyboard event handlers
-document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
+document.addEventListener("keydown", keyDown);
 
 // Rules and close event handlers
 rulesBtn.addEventListener("click", () => rules.classList.add("show"));
