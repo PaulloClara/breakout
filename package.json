@@ -1,12 +1,23 @@
 {
   "name": "breakout",
   "version": "0.0.1",
-  "main": "src",
+  "main": "src/views/main.html",
   "repository": "https://github.com/paulloclara/breakout",
   "author": "paulloclara <paulloclara@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nw src"
+    "dev": "nw ."
+  },
+  "window": {
+    "title": "Breakout",
+    "toolbar": true,
+    "width": 1000,
+    "height": 1000,
+    "min_width": 1000,
+    "min_height": 1000,
+    "max_width": 1000,
+    "max_height": 1000,
+    "position": "mouse"
   },
   "devDependencies": {
     "nw": "^0.44.2"
