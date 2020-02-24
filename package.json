@@ -1,0 +1,11 @@
+{
+  "name": "breakout",
+  "version": "0.0.1",
+  "main": "src",
+  "repository": "https://github.com/paulloclara/breakout",
+  "author": "paulloclara <paulloclara@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nw ."
+  }
+}

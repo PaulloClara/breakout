@@ -1,0 +1,19 @@
+{
+  "name": "breakout",
+  "version": "0.0.1",
+  "main": "views/main.html",
+  "repository": "https://github.com/paulloclara/breakout",
+  "author": "paulloclara <paulloclara@gmail.com>",
+  "license": "MIT",
+  "window": {
+    "title": "Breakout",
+    "toolbar": true,
+    "width": 1000,
+    "height": 1000,
+    "min_width": 1000,
+    "min_height": 1000,
+    "max_width": 1000,
+    "max_height": 1000,
+    "position": "mouse"
+  }
+}
