@@ -1,7 +1,7 @@
 {
   "name": "breakout",
   "version": "0.0.1",
-  "main": "src/views/main.html",
+  "main": "src/views/main/index.html",
   "repository": "https://github.com/paulloclara/breakout",
   "author": "paulloclara <paulloclara@gmail.com>",
   "license": "MIT",
