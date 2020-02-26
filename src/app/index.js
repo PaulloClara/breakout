@@ -1,11 +1,8 @@
 require("../app/nw").config();
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-const rules = document.getElementById("rules");
-const rulesBtn = document.getElementById("rules-btn");
-const closeBtn = document.getElementById("close-btn");
+const { canvas, context, rules, rulesBtn, closeBtn } = require("../app/els")(
+  document
+);
 
 let score = 0;
 
@@ -55,37 +52,37 @@ for (let i = 0; i < brickRowCount; i++) {
 
 // Draw ball on canvas
 function drawBall() {
-  ctx.beginPath();
-  ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
-  ctx.fillStyle = "#0095dd";
-  ctx.fill();
-  ctx.closePath();
+  context.beginPath();
+  context.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
+  context.fillStyle = "#0095dd";
+  context.fill();
+  context.closePath();
 }
 
 // Draw paddle on canvas
 function drawPaddle() {
-  ctx.beginPath();
-  ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
-  ctx.fillStyle = "#0095dd";
-  ctx.fill();
-  ctx.closePath();
+  context.beginPath();
+  context.rect(paddle.x, paddle.y, paddle.w, paddle.h);
+  context.fillStyle = "#0095dd";
+  context.fill();
+  context.closePath();
 }
 
 // Draw score oon canvas
 function drawScore() {
-  ctx.font = "20px Arial";
-  ctx.fillText(`Score: ${score}`, canvas.width - 100, 30);
+  context.font = "20px Arial";
+  context.fillText(`Score: ${score}`, canvas.width - 100, 30);
 }
 
 // Draw bricks on canvas
 function drawBricks() {
   bricks.forEach(column => {
     column.forEach(brick => {
-      ctx.beginPath();
-      ctx.rect(brick.x, brick.y, brick.w, brick.h);
-      ctx.fillStyle = brick.visible ? "#0095dd" : "transparent";
-      ctx.fill();
-      ctx.closePath();
+      context.beginPath();
+      context.rect(brick.x, brick.y, brick.w, brick.h);
+      context.fillStyle = brick.visible ? "#0095dd" : "transparent";
+      context.fill();
+      context.closePath();
     });
   });
 }
@@ -166,7 +163,7 @@ function showAllBricks() {
 // Draw everything
 function draw() {
   // clear canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
   drawBall();
   drawPaddle();
