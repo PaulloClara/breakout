@@ -6,7 +6,8 @@
   "author": "paulloclara <paulloclara@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nw ."
+    "start": "nw .",
+    "dev": "nw . --dev"
   },
   "window": {
     "title": "Breakout",
